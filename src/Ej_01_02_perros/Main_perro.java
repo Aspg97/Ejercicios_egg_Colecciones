@@ -1,6 +1,7 @@
 package Ej_01_02_perros;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Main_perro {
@@ -9,6 +10,7 @@ public class Main_perro {
 		Scanner leer = new Scanner(System.in);
 		Perro_service tool = new Perro_service();
 		ArrayList<Perro> perro = new ArrayList();
+		int numPerro;
 		boolean continuar=true;
 		while(continuar == true) {
 			char afirmacion;
@@ -32,7 +34,23 @@ public class Main_perro {
 		for (Perro datos : perro) {
 			tool.mostrarDatos(datos);
 		}
-		
+		System.out.println("De los datos mostrados seleccione un numero de perro");
+		numPerro = leer.nextInt();
+		Iterator<Perro> recPerro = perro.iterator();
+		while(recPerro.hasNext()) {
+			if(recPerro.next().getNumPerro()==numPerro) {
+				recPerro.remove();
+				System.out.println("\nPERRO ELIMINADO!");
+				break;
+			}else {
+				System.out.println("\nNO SE ENCONTRO EL PERRO QUE DESEA ELIMINAR");
+			}
+		}
+		System.out.println("\nLa nueva lista de los perros es:");
+		Iterator<Perro> mosPerro = perro.iterator();
+		while(mosPerro.hasNext()) {
+			tool.mostrarDatos(mosPerro.next());
+		}
 		//tool.mostrarRaza(p);
 
 	}
