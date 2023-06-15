@@ -1,5 +1,7 @@
 package Ej_01_02_perros;
 
+import java.util.Comparator;
+
 public class Perro {
 	private String raza,nombre;
 	private int numPerro;
@@ -33,4 +35,10 @@ public class Perro {
 		this.raza = raza;
 	}
 	
+	public static Comparator<Perro> compararRaza = new Comparator<Perro>() {
+		@Override
+		public int compare(Perro p1, Perro p2) {
+			return p1.getRaza().compareTo(p2.getRaza());
+		}
+	};
 }

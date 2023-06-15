@@ -47,11 +47,11 @@ public class Main_perro {
 			}
 		}
 		System.out.println("\nLa nueva lista de los perros es:");
+		perro.sort(Perro.compararRaza);
 		Iterator<Perro> mosPerro = perro.iterator();
 		while(mosPerro.hasNext()) {
 			tool.mostrarDatos(mosPerro.next());
 		}
-		//tool.mostrarRaza(p);
 
 	}
 
